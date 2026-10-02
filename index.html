@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="chamados.js" defer></script>
+    <script src="app-chamados.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Chamados</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="pesquisa" placeholder="Pesquisar por nome...">
+
+        <select id="filtro-prioridade">
+            <option value="">Todas as prioridades</option>
+            <option value="Crítica">Crítica</option>
+            <option value="Alta">Alta</option>
+            <option value="Média">Média</option>
+            <option value="Baixa">Baixa</option>
+        </select>
+
+        <select id="filtro-status">
+            <option value="">Todos os status</option>
+            <option value="Aberto">Aberto</option>
+            <option value="Em progresso">Em progresso</option>
+            <option value="Fechado">Fechado</option>
+        </select>
+
+        <button type="button" id="limpar">Limpar filtros</button>
+    </form>
+    <hr>
+    <div class="chamado-container" id="chamado-container"></div>
+</body>
+</html>
