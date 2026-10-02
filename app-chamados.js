@@ -41,13 +41,17 @@ function carregarChamados(listaChamados) {
   container.replaceChildren(...cards)
 }
 
+function normalizar(texto) {
+  return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 function filtrarChamados() {
-  const texto = campoPesquisa.value.trim().toLowerCase()
+  const texto = normalizar(campoPesquisa.value.trim())
   const prioridade = filtroPrioridade.value
   const status = filtroStatus.value
 
   const chamadosFiltrados = chamados
-    .filter(chamado => chamado.usuario.toLowerCase().includes(texto))
+    .filter(chamado => normalizar(chamado.titulo).includes(texto))
     .filter(chamado => prioridade === '' || chamado.prioridade === prioridade)
     .filter(chamado => status === '' || chamado.status === status)
 
